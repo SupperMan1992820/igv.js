@@ -641,7 +641,7 @@ function emptyViewportContainers(trackViews) {
 
 function populateViewportContainer(browser, referenceFrameList, trackView) {
 
-    const width = browser.calculateViewportWidth(referenceFrameList.length);
+    const width = browser.computeViewportWidth(referenceFrameList.length, browser.getViewportContainerWidth());
 
     trackView.viewports = [];
 
