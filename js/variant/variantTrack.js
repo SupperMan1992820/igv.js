@@ -249,7 +249,7 @@ class VariantTrack extends TrackBase {
             }
 
             if (drawnFeatures.length > 0) {
-                this.trackView.sampleNameViewport.draw(drawnFeatures, pixelTop, pixelHeight)
+                this.drawSampleNames(drawnFeatures, pixelTop, pixelHeight, drawVariantTrackSampleNames)
             }
 
         } else {
@@ -479,7 +479,5 @@ function drawVariantTrackSampleNames(ctx, features, canvasTop, height) {
     // }
 
 }
-
-export { drawVariantTrackSampleNames }
 
 export default VariantTrack
