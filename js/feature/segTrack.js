@@ -146,6 +146,8 @@ class SegTrack extends TrackBase {
 
     draw({ context, pixelTop, pixelWidth, pixelHeight, features, bpPerPixel, bpStart }) {
 
+        const self = this
+
         IGVGraphics.fillRect(context, 0, pixelTop, pixelWidth, pixelHeight, {'fillStyle': "rgb(255,255,255)"});
 
         if (features && features.length > 0) {
@@ -234,8 +236,8 @@ class SegTrack extends TrackBase {
                 h -= 2 * border
                 segment.pixelRect = { x, y, w, h };
 
-                context.fillStyle = color
-                // context.fillStyle = randomColor()
+                // context.fillStyle = color
+                context.fillStyle = randomRGB(180, 240)
                 // context.fillStyle = randomGrey(200, 255)
                 context.fillRect(x, y, w, h)
 
@@ -251,7 +253,6 @@ class SegTrack extends TrackBase {
             console.log("No feature list");
         }
 
-        const self = this
         function checkForLog(featureList) {
 
             if (self.isLog === undefined) {
@@ -266,7 +267,7 @@ class SegTrack extends TrackBase {
         }
 
     };
-    
+
     /**
      * Optional method to compute pixel height to accomodate the list of features.  The implementation below
      * has side effects (modifiying the samples hash).  This is unfortunate, but harmless.

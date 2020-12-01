@@ -23,6 +23,7 @@
  * THE SOFTWARE.
  */
 
+import TrackBase from "./trackBase.js"
 import IGVGraphics from "./igv-canvas.js";
 
 const defaultSequenceTrackOrder = Number.MIN_SAFE_INTEGER;
@@ -94,18 +95,19 @@ const translationDict = {
     'GGG': 'G'
 }
 
-class SequenceTrack {
+class SequenceTrack extends TrackBase {
 
     constructor(config, browser) {
 
-        this.type = "sequence";
-        this.browser = browser;
-        this.removable = false;
+        super(config, browser)
 
-        this.config = config;
-        this.name = "";
-        this.id = "sequence";
-        this.sequenceType = config.sequenceType || "dna";             //   dna | rna | prot
+        this.type = this.id = 'sequence'
+        this.removable = false
+        this.name = 'Sequence'
+
+        //   dna | rna | prot
+        this.sequenceType = config.sequenceType || "dna"
+
         this.height = 25;
         this.disableButtons = false;
         this.order = config.order || defaultSequenceTrackOrder;
@@ -189,6 +191,8 @@ class SequenceTrack {
     }
 
     draw(options) {
+
+        this.drawTrackNameAsSampleName(this.name)
 
         const ctx = options.context;
 
