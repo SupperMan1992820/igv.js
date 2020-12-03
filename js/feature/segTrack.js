@@ -185,6 +185,7 @@ class SegTrack extends TrackBase {
             }
 
             const drawnFeatures = []
+            const featureDictionary = {}
             const bpEnd = bpStart + pixelWidth * bpPerPixel + 1;
             const pixelBottom = pixelTop + pixelHeight;
             for (let segment of features) {
@@ -240,6 +241,18 @@ class SegTrack extends TrackBase {
                 // context.fillStyle = randomRGB(180, 240)
                 // context.fillStyle = randomGrey(200, 255)
                 context.fillRect(x, y, w, h)
+
+                // diagnostic - test sort, etc.
+                const key = y.toString()
+                if (undefined === featureDictionary[ key ]) {
+
+                    const string = segment.sampleKey || segment.sample
+                    featureDictionary[ key ] = string
+
+                    configureFont(context, fontConfig)
+                    
+                    context.fillText(string, x + 4, y + h)
+                }
 
                 drawnFeatures.push(segment)
 
@@ -452,6 +465,22 @@ class SegTrack extends TrackBase {
             }
         }
     }
+}
+
+const fontConfig =
+    {
+        font: '10px sans-serif',
+        textAlign: 'start', // start || end
+        textBaseline: 'bottom',
+        strokeStyle: 'black',
+        fillStyle:'black'
+    };
+
+function configureFont(ctx, { font, textAlign, textBaseline, strokeStyle, fillStyle }) {
+    ctx.font = font
+    ctx.textAlign = textAlign
+    ctx.textBaseline = textBaseline
+    ctx.fillStyle = fillStyle
 }
 
 const fudge = 4
