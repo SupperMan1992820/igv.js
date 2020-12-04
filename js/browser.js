@@ -1057,7 +1057,7 @@ class Browser {
             let str
             if (this.$searchInput) {
 
-                let end = referenceFrame.start + referenceFrame.bpPerPixel * this.viewportWidth();
+                let end = referenceFrame.start + referenceFrame.bpPerPixel * this.getViewportWidth();
 
                 if (this.genome) {
                     const chromosome = this.genome.getChromosome(referenceFrame.chr);
