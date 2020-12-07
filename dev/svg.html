@@ -80,38 +80,20 @@
 
         const options =
             {
-                showSVGButton: true,
                 genome: "hg19",
-                // locus: "chr1",
 
                 // vcf friendly locs
                 // locus: 'chr8:128,562,838-128,863,257',
 
+                // locus: 'chr1,
                 // locus: 'all',
-                locus: 'myc',
-                // locus: [ 'ace', 'myc' ],
-                // locus: [ 'egfr', 'myc', 'ace' ],
+                // locus: 'myc',
+                locus: [ 'ace', 'myc' ],
+                // locus: [ 'ace', 'myc', 'egfr' ],
+                // locus: 'chr8:128,751,240-128,751,534',
 
                 tracks:
                     [
-                        {
-                            name: "A SEG Track",
-                            url: "https://data.broadinstitute.org/igvdata/test/igv-web/segmented_data_080520.seg.gz",
-                            indexed: false,
-                            isLog: true,
-                            displayMode: 'EXPANDED',
-                            height: 256
-
-                        },
-                        // {
-                        //     format: "vcf",
-                        //     indexURL: "https://1000genomes.s3.amazonaws.com/phase3/integrated_sv_map/ALL.wgs.integrated_sv_map_v2.20130502.svs.genotypes.vcf.gz.tbi",
-                        //     name: "A Variant Track",
-                        //     type: "variant",
-                        //     url: "https://1000genomes.s3.amazonaws.com/phase3/integrated_sv_map/ALL.wgs.integrated_sv_map_v2.20130502.svs.genotypes.vcf.gz",
-                        //     visibilityWindow: 10000000,
-                        //     height: 256
-                        // },
                     ]
             };
 
