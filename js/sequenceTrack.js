@@ -192,7 +192,9 @@ class SequenceTrack extends TrackBase {
 
     draw(options) {
 
-        this.drawTrackNameAsSampleName(this.name)
+        if (false === options.renderSVG) {
+            this.drawTrackNameAsSampleName(this.name)
+        }
 
         const ctx = options.context;
 

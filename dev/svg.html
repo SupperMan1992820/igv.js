@@ -81,6 +81,8 @@
         const options =
             {
                 genome: "hg19",
+                showSVGButton: false,
+                showTrackLabels: false,
 
                 // vcf friendly locs
                 // locus: 'chr8:128,562,838-128,863,257',
@@ -88,12 +90,21 @@
                 // locus: 'chr1,
                 // locus: 'all',
                 // locus: 'myc',
-                locus: [ 'ace', 'myc' ],
+                // locus: [ 'ace', 'myc' ],
                 // locus: [ 'ace', 'myc', 'egfr' ],
-                // locus: 'chr8:128,751,240-128,751,534',
+                locus: 'chr8:128,751,240-128,751,534',
 
                 tracks:
                     [
+                        {
+                            name: "A SEG Track",
+                            url: "https://data.broadinstitute.org/igvdata/test/igv-web/segmented_data_080520.seg.gz",
+                            indexed: false,
+                            isLog: true,
+                            displayMode: 'SQUISHED',
+                            height: 256
+
+                        },
                     ]
             };
 

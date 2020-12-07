@@ -90,7 +90,7 @@ class TrackBase {
     }
 
     drawSampleNames(features, canvasTop, height, sampleNameRenderer) {
-        this.trackView.sampleNameViewport.draw(features, canvasTop, height, sampleNameRenderer)
+        this.trackView.sampleNameViewport.drawSampleNames(features, canvasTop, height, sampleNameRenderer)
     }
 
     /**
