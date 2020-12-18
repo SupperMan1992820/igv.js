@@ -130,7 +130,7 @@ class SegTrack extends TrackBase {
 
         return menuItems;
 
-    };
+    }
 
 
     async getFeatures(chr, start, end) {
@@ -141,7 +141,7 @@ class SegTrack extends TrackBase {
             this.initialSort = undefined;  // Sample order is sorted,
         }
         return features;
-    };
+    }
 
 
     draw({ context, renderSVG, pixelTop, pixelWidth, pixelHeight, features, bpPerPixel, bpStart }) {
@@ -278,7 +278,7 @@ class SegTrack extends TrackBase {
             }
         }
 
-    };
+    }
 
     /**
      * Optional method to compute pixel height to accomodate the list of features.  The implementation below
@@ -340,7 +340,7 @@ class SegTrack extends TrackBase {
 
         this.trackView.repaintViews();
         // self.trackView.$viewport.scrollTop(0);
-    };
+    }
 
     clickedFeatures(clickState) {
 
@@ -479,7 +479,14 @@ function configureFont(ctx, { font, textAlign, textBaseline, strokeStyle, fillSt
 
 const fudge = 4
 function drawSegTrackSampleNames(ctx, featureMap, canvasWidth, canvasHeight) {
+
     for (let { x, y, w, h, name } of featureMap.values()) {
+
+        ctx.save()
+        ctx.fillStyle = randomRGBConstantAlpha(150, 250, 0.5)
+        ctx.fillRect(0, y,canvasWidth, h)
+        ctx.restore()
+
         ctx.fillText(name, canvasWidth - fudge, y + h)
     }
 
