@@ -71,14 +71,16 @@
 
         const options =
             {
+                showTrackLabels: false,
+                showTrackLabelButton: false,
                 genome: "hg19",
-                // locus: "chr1",
+                locus: 'chr1',
 
                 // vcf friendly locs
                 // locus: 'chr8:128,562,838-128,863,257',
 
                 // locus: 'all',
-                locus: 'myc',
+                // locus: 'myc',
                 // locus: [ 'ace', 'myc' ],
                 // locus: [ 'egfr', 'myc', 'ace' ],
 
@@ -90,7 +92,7 @@
                             indexed: false,
                             isLog: true,
                             displayMode: 'EXPANDED',
-                            height: 256
+                            height: 512
 
                         },
                         // {
