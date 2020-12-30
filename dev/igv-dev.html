@@ -63,8 +63,9 @@
 
 <script type="module">
 
+    import {igvxhr, oauth} from '../node_modules/igv-utils/src/index.js'
     import igv from '../js/index.js'
-    import GtexUtils from "../js/gtex/gtexUtils.js";
+    import GtexUtils from '../js/gtex/gtexUtils.js';
 
     let browser
     (async () => {
@@ -115,7 +116,7 @@
 
     function createTrackList(div, file, browser) {
 
-        return igv.xhr.loadJson(file)
+        return igvxhr.loadJson(file)
 
             .then(function (tracks) {
 
