@@ -143,7 +143,6 @@ class SegTrack extends TrackBase {
         return features;
     }
 
-
     draw({ context, renderSVG, pixelTop, pixelWidth, pixelHeight, features, bpPerPixel, bpStart }) {
 
         const self = this
@@ -188,6 +187,8 @@ class SegTrack extends TrackBase {
             const bpEnd = bpStart + pixelWidth * bpPerPixel + 1;
             const pixelBottom = pixelTop + pixelHeight;
             for (let segment of features) {
+
+                segment.pixelRect = undefined;   // !important, reset this in case segment is not drawn
 
                 if (segment.end < bpStart) continue;
                 if (segment.start > bpEnd) break;
@@ -359,16 +360,13 @@ class SegTrack extends TrackBase {
 
     popupData(clickState, featureList) {
 
-        const self = this;
-
         if (!featureList) featureList = this.clickedFeatures(clickState);
 
         const items = [];
 
-        featureList.forEach(function (f) {
-            extractPopupData(f, items);
-
-        });
+        for (let f of featureList) {
+            extractPopupData(f, items)
+        }
 
         return items;
 
